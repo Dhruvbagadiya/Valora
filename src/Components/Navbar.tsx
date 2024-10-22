@@ -14,7 +14,6 @@ const Navbar = () => {
     isMenuOpen: false,
     isServicesOpen: false,
     isMobileServicesOpen: false,
-    isMobileToolsOpen: false,
     isToolsOpen: false,
   });
   const servicesMenuRef = useRef<HTMLUListElement>(null);
@@ -45,7 +44,6 @@ const Navbar = () => {
           ...prevState,
           isServicesOpen: false,
           isMobileServicesOpen: false,
-          isMobileToolsOpen: false,
         }));
       }
     };
@@ -67,13 +65,6 @@ const Navbar = () => {
     setState((prevState) => ({
       ...prevState,
       isMobileServicesOpen: !prevState.isMobileServicesOpen,
-    }));
-  };
-
-  const toggleMobileToolsMenu = () => {
-    setState((prevState) => ({
-      ...prevState,
-      isMobileToolsOpen: !prevState.isMobileToolsOpen,
     }));
   };
 
@@ -156,6 +147,7 @@ const Navbar = () => {
               width={100}
               height={50}
               className="cursor-pointer"
+              
             />
           </Link>
         </div>
@@ -202,7 +194,7 @@ const Navbar = () => {
           <motion.li
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.2 }}
+            transition={{ delay: 0.3 }}
             className="relative"
             onMouseEnter={handleMouseEnter}
             onMouseLeave={handleMouseLeave}
@@ -269,7 +261,7 @@ const Navbar = () => {
           <motion.li
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.3 }}
+            transition={{ delay: 0.2 }}
           >
             <Link
               href="/about"
@@ -297,7 +289,7 @@ const Navbar = () => {
           <motion.li
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.5 }}
+            transition={{ delay: 0.3 }}
             className="relative"
             onMouseEnter={handleToolsMouseEnter}
             onMouseLeave={handleToolsMouseLeave}
@@ -349,10 +341,10 @@ const Navbar = () => {
           <motion.li
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.6 }}
+            transition={{ delay: 0.5 }}
           >
             <Link
-              href="/portfolio"
+              href="/#portfolio"
               onClick={handleLinkClick}
               className="hover:text-primary transition-colors duration-300"
             >
@@ -363,7 +355,7 @@ const Navbar = () => {
           <motion.li
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.7 }}
+            transition={{ delay: 0.6 }}
           >
             <Link
               href="/contact"
@@ -376,6 +368,7 @@ const Navbar = () => {
         </ul>
       </div>
 
+      {/* Mobile Menu */}
       {/* Mobile Menu */}
       <div
         className={`md:hidden ${
@@ -394,7 +387,7 @@ const Navbar = () => {
           </li>
           <li>
             <Link
-              href="/about"
+              href="/#about"
               onClick={handleLinkClick}
               className="block px-4 py-2 text-center"
             >
@@ -457,46 +450,6 @@ const Navbar = () => {
               </ul>
             )}
           </li>
-            {/* Tools Menu */}
-          <li className="relative">
-            <button
-              onClick={toggleMobileToolsMenu}
-              className="flex items-center justify-center w-1/2 m-auto px-4 py-2 bg-transparent border border-transparent rounded-lg hover:bg-gray-800 transition duration-300"
-            >
-              <span className="flex-1 text-center text-lg">Tools</span>
-              <FaChevronDown
-                className={`transition-transform duration-300 ${
-                  State.isMobileToolsOpen ? "rotate-180" : "rotate-0"
-                }`}
-              />
-            </button>
-            {State.isMobileToolsOpen && (
-              <ul className="relative mt-1 w-full bg-secondary text-[#ffffff] shadow-lg z-10 text-center">
-                {[
-                  { href: "/tools/jwt-decoder", text: "JWT Decoder" },
-                  { href: "/tools/base64-encoder", text: "Base64 Encoder" },
-                  { href: "/tools/uuid-generator", text: "UUID Generator" },
-                  { href: "/tools/url-parser", text: "URL Parser" },
-                ].map((item, index) => (
-                  <li key={index}>
-                    <hr className="border-t border-gray-500 my-1" />
-                    <Link
-                      href={item.href}
-                      onClick={handleLinkClick}
-                      className="block px-4 py-2 text-sm group relative hover:text-primary"
-                    >
-                      <span className="inline-block">
-                        {item.text}
-                        <span className="absolute left-0 bottom-[-2px] w-full h-[2px] bg-primary transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 ease-in-out"></span>
-                      </span>
-                    </Link>
-                    <hr className="border-t border-gray-500 my-1" />
-                  </li>
-                ))}
-              </ul>
-            )}
-          </li>
-
           <li>
             <Link
               href="/Blogs"
@@ -508,7 +461,7 @@ const Navbar = () => {
           </li>
           <li>
             <Link
-              href="/portfolio"
+              href="/#portfolio"
               onClick={handleLinkClick}
               className="block px-4 py-2 text-center"
             >

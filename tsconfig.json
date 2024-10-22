@@ -1,5 +1,24 @@
 {
     "compilerOptions": {
+        "baseUrl": ".",
+        "paths": {
+            "@App/*": [
+                "./src/*"
+            ],
+            "@/components/*": [
+                "./src/components/*"
+            ],
+            "@/data/*": [
+                "./src/data/*"
+            ],
+            "@/lib/*": [
+                "./src/lib/*"
+            ],
+            "@/styles/*": [
+                "./src/styles/*"
+            ]
+        },
+        "target": "es5",
         "lib": [
             "dom",
             "dom.iterable",
@@ -8,33 +27,26 @@
         "allowJs": true,
         "skipLibCheck": true,
         "strict": true,
+        "forceConsistentCasingInFileNames": true,
         "noEmit": true,
         "esModuleInterop": true,
         "module": "esnext",
-        "moduleResolution": "bundler",
+        "moduleResolution": "node",
         "resolveJsonModule": true,
         "isolatedModules": true,
         "jsx": "preserve",
-        "noUnusedLocals": false,
         "incremental": true,
         "plugins": [
             {
                 "name": "next"
             }
-        ],
-        "paths": {
-            "@App/*": [
-                "./src/*"
-            ]
-        }
+        ]
     },
     "include": [
         "next-env.d.ts",
         "**/*.ts",
         "**/*.tsx",
         ".next/types/**/*.ts",
-        "types/**/*" // Add this line if you created a types folder
-        ,
         "src/middleware.ts"
     ],
     "exclude": [

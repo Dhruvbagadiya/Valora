@@ -1,9 +1,9 @@
 import type { Metadata, Viewport } from "next";
-import "@App/Styles/global.sass"; // Ensure the path is correct and includes your global styles
-import "github-markdown-css/github-markdown-light.css"; // Include the GitHub markdown CSS
+import "@/styles/globals.css";
 import { ReactNode } from "react";
 import { GoogleAnalytics } from '@next/third-parties/google'
 import { Poppins } from 'next/font/google'
+import { ThemeProvider } from "next-themes";
 
 export const metadata: Metadata = {
     title: "Valora Infotech",
@@ -32,14 +32,19 @@ export default function RootLayout({
     children: ReactNode;
 }) {
     return (
-        <html lang="en">
+        <html lang="en" suppressHydrationWarning>
             <head>
                 <meta charSet="utf-8" />
                 <script defer src="/js/particles.js"></script>
                 <GoogleAnalytics gaId="G-1MLJGLLSTX" />
             </head>
             <body className={"bg-gray-100 text-gray-900 font-poppins " + poppins.className}>
-                {children}
+                <ThemeProvider
+                    defaultTheme="system"
+                    attribute="class"
+                >
+                    {children}
+                </ThemeProvider>
             </body>
         </html>
     );

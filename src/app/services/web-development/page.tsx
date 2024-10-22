@@ -2,8 +2,8 @@
 // app/services/web-development/page.tsx
 import Image from 'next/image';
 import Link from 'next/link';
-import Navbar from '../../../Components/Navbar';
-import Footer from '../../../Components/Footer';
+import Navbar from '@App/components/Navbar';
+import Footer from '@App/components/Footer';
 
 const WebDevelopmentPage = () => {
   return (
@@ -90,7 +90,7 @@ const WebDevelopmentPage = () => {
                   />  
                 </div>
                 <div className={`w-full md:w-1/2 ${index % 2 === 0 ? 'pl-8' : 'pr-8'} flex flex-col justify-center items-start text-left`}>
-                  <h3 className="text-lg md:text-xl font-bold text-secondary mb-2 py-5">{item.title}</h3>
+                  <h3 className="text-lg md:text-xl font-bold text-primary mb-2 py-5">{item.title}</h3>
                   <p className="text-base text-green-950 mb-4">{item.description}</p>
                 </div>
               </div>
