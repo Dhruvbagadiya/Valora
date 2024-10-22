@@ -2,8 +2,8 @@
 
 import { FaRocket, FaLightbulb } from "react-icons/fa";
 import { motion } from "framer-motion";
-import Navbar from "@App/components/Navbar";
-import Footer from "@App/components/Footer";
+import Navbar from "../../Components/Navbar";
+import Footer from "../../Components/Footer";
 
 const DetailedAbout = () => {
   return (
@@ -195,38 +195,7 @@ const DetailedAbout = () => {
               </motion.div>
             </div>
           </section>
-          {/* Team Profiles */}
-          <section className="my-16">
-            <h3 className="text-4xl text-primary mb-6">Meet Our Team</h3>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-              <div className="p-6 bg-white shadow-lg rounded-lg hover:shadow-xl transition-shadow duration-300">
-                <h4 className="text-xl font-semibold mb-4">Nayan Lodaliya</h4>
-                <p className="text-lg">Position</p>
-                <p className="text-md mt-2">
-                  Nayan brings years of experience and leadership, driving the
-                  company’s vision and strategy.
-                </p>
-              </div>
-
-              <div className="p-6 bg-white shadow-lg rounded-lg hover:shadow-xl transition-shadow duration-300">
-                <h4 className="text-xl font-semibold mb-4">Sanket Vaghela</h4>
-                <p className="text-lg">Position</p>
-                <p className="text-md mt-2">
-                  With deep technical expertise, Sanket leads the development
-                  team, ensuring cutting-edge solutions.
-                </p>
-              </div>
-
-              <div className="p-6 bg-white shadow-lg rounded-lg hover:shadow-xl transition-shadow duration-300">
-                <h4 className="text-xl font-semibold mb-4">Jigar Rangani</h4>
-                <p className="text-lg">Position</p>
-                <p className="text-md mt-2">
-                  Jigar manages operations, focusing on seamless project
-                  execution and client satisfaction.
-                </p>
-              </div>
-            </div>
-          </section>
+         
           {/* Mission, Vision, and Values */}
           <section className="my-16">
             <h3 className="text-4xl text-primary mb-6">

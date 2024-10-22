@@ -1,10 +1,10 @@
-import Hero from "@App/components/Hero";
-import Navbar from "@App/components/Navbar";
-import About from "@App/components/About";
-import Services from "@App/components/ServicesCards";
-import Testimonials from "@App/components/Testimonials";  
-import Portfolio from "@App/components/Portfolio";
-import Footer from "@App/components/Footer";
+import Hero from "../Components/Hero";
+import Navbar from "@App/Components/Navbar";
+import About from "../Components/About";
+import Services from "../Components/ServicesCards";
+import Testimonials from "../Components/Testimonials";  
+import Portfolio from "../Components/Portfolio";
+import Footer from "../Components/Footer";
 import React from "react";
 
 export default function Home() {

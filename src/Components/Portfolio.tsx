@@ -77,7 +77,7 @@ const Portfolio = () => {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6 }}
             >
-              View More Projects
+              View More
             </motion.a>
           </Link>
         </div>
