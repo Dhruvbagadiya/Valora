@@ -3,8 +3,8 @@ import { ParsedUrlQuery } from "querystring";
 import { getAllMdx } from "@App/lib/mdx";
 import { slugify } from "@App/lib/utils";
 import { MDXFrontMatter } from "@App/lib/types";
-import { Page } from "@/components/Page";
-import { PostList } from "@/components/PostList";
+import { Page } from "@App/components/Page";
+import { PostList } from "@App/components/PostList";
 
 interface ContextProps extends ParsedUrlQuery {
   tag: string;

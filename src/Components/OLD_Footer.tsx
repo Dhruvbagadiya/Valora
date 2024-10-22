@@ -1,7 +1,7 @@
 import { Twitter, Instagram, GitHub, Linkedin } from "react-feather";
 import siteConfig from "@App/data/siteConfig";
 import { cx } from "@App/lib/utils";
-import { ThemeSelect } from "@/components/ThemeSelect";
+import { ThemeSelect } from "@App/components/ThemeSelect";
 
 const iconProps = { className: "w-4 h-4" };
 

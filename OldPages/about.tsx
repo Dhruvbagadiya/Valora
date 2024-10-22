@@ -1,6 +1,6 @@
 import type { NextPage } from "next";
-import { Page } from "@/components/Page";
-import { Prose } from "@/components/Prose";
+import { Page } from "@App/components/Page";
+import { Prose } from "@App/components/Prose";
 
 const About: NextPage = () => {
   return (

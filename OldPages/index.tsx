@@ -2,8 +2,8 @@ import type { GetStaticProps, NextPage } from "next";
 import Link from "next/link";
 import { getAllMdx } from "@App/lib/mdx";
 import { MDXFrontMatter } from "@App/lib/types";
-import { Page } from "@/components/Page";
-import { PostList } from "@/components/PostList";
+import { Page } from "@App/components/Page";
+import { PostList } from "@App/components/PostList";
 import { ArrowRight } from "react-feather";
 
 interface HomeProps {

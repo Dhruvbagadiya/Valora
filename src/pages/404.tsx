@@ -1,4 +1,4 @@
-import { Page } from "@/components/Page";
+import { Page } from "@App/components/Page";
 import type { NextPage } from "next";
 
 const Custom404: NextPage = () => {

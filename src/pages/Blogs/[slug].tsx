@@ -6,9 +6,9 @@ import { MDXRemote } from "next-mdx-remote";
 import rehypePrism from "rehype-prism-plus";
 import { getAllMdx, getMdx } from "@App/lib/mdx";
 import { MDXFrontMatter } from "@App/lib/types";
-import { Page } from "@/components/Page";
-import { components } from "@/components/MDX";
-import { Prose } from "@/components/Prose";
+import { Page } from "@App/components/Page";
+import { components } from "@App/components/MDX";
+import { Prose } from "@App/components/Prose";
 import { cx } from "@App/lib/utils";
 import remarkGfm from "remark-gfm";
 interface ContextProps extends ParsedUrlQuery {

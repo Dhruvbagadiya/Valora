@@ -2,7 +2,7 @@ import Head from "next/head";
 import { onlyText } from "react-children-utilities";
 import { formatDate } from "@App/lib/formatDate";
 import siteConfig from "@App/data/siteConfig";
-import { Prose } from "@/components/Prose";
+import { Prose } from "@App/components/Prose";
 import { cx } from "@App/lib/utils";
 
 interface PageProps {

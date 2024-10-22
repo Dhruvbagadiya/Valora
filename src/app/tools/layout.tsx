@@ -14,8 +14,8 @@ import {
 } from "react-icons/fa"; // Import icons from react-icons
 import Base64 from "./base64-encoder-decoder/page";
 import Image from "next/image";
-import logo from '../../../public/assets/icon.svg';
-import Logo from '../../../public/assets/valora.svg';
+import logo from "../../../public/assets/icon.svg";
+import Logo from "../../../public/assets/valora.svg";
 import UUID from "./uuid-generator/page";
 import URL from "./url-encoder-decoder/page";
 import DateAndTime from "./date-time-utilities/page";
@@ -78,12 +78,11 @@ export default function ToolsLayout({ children }: { children: ReactNode }) {
 
             {/* Sidebar Menu */}
             <div
-                className={`${isSidebarOpen ? "block" : "hidden"
-                    } lg:block w-full lg:w-80 p-6 text-primary bg-gray-800 shadow-lg lg:relative fixed z-50 transition-transform transform ${isSidebarOpen ? "translate-x-0" : "-translate-x-full"
+                className={`lg:block w-full lg:w-80 p-6 text-primary bg-gray-800 shadow-lg lg:relative fixed z-50 transition-transform transform ${isSidebarOpen ? "translate-x-0" : "lg:translate-x-0 -translate-x-full"
                     }`}
                 style={{ height: "100vh" }}
             >
-                {/* Close Button inside the Sidebar */}
+                {/* Close Button inside the Sidebar (Mobile Only) */}
                 <button
                     className="lg:hidden absolute top-4 right-4 text-gray-300 focus:outline-none"
                     onClick={() => setIsSidebarOpen(false)}
@@ -93,10 +92,22 @@ export default function ToolsLayout({ children }: { children: ReactNode }) {
 
                 <div className="flex items-center mb-4">
                     <Link href="/">
-                        <Image src={logo} alt="Main Logo" width={40} height={40} className="cursor-pointer" />
+                        <Image
+                            src={logo}
+                            alt="Main Logo"
+                            width={40}
+                            height={40}
+                            className="cursor-pointer"
+                        />
                     </Link>
                     <Link href="/" className="ml-2">
-                        <Image src={Logo} alt="Valora Logo" width={100} height={50} className="cursor-pointer" />
+                        <Image
+                            src={Logo}
+                            alt="Valora Logo"
+                            width={100}
+                            height={50}
+                            className="cursor-pointer"
+                        />
                     </Link>
                 </div>
 

@@ -7,3 +7,6 @@
 - [ ] Fix: Tool Navigation Penel
 - [ ] Fix: Inputs Colour System
 - [ ] Implement Global Theme System for User Experience
+- [x] AWS Deployment Capabilitie
+- [ ] Vercel Deployment Capabilitie
+- [ ] Docker Deployment Capabilitie

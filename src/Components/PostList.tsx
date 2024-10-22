@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { formatDate } from "@App/lib/formatDate";
 import type { MDXFrontMatter } from "@App/lib/types";
-import { Prose } from "@/components/Prose";
+import { Prose } from "@App/components/Prose";
 import { cx, slugify } from "@App/lib/utils";
 import { Tag } from "./Tag";
 
