@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from 'framer-motion';
+import React from 'react';
 
 const testimonialsData = [
     {
@@ -25,15 +26,15 @@ const testimonialsData = [
 
 const Testimonials = () => {
     return (
-        <section id="testimonials" className="py-32 relative overflow-hidden">
+        <section id="testimonials" className="py-32 relative overflow-hidden bg-light dark:bg-dark">
             {/* Background Layer */}
-            <div className="absolute inset-0 bg-secondary z-0"></div>
+            <div className="absolute inset-0 z-0"></div>
 
             {/* Content */}
             <div className="relative z-10 container mx-auto px-6 md:px-12 lg:px-24 text-center">
                 {/* Title */}
                 <motion.h2
-                    className="text-4xl md:text-5xl font-bold mb-12 text-white"
+                    className="text-4xl md:text-5xl font-bold mb-12 text-lightDark dark:text-darkText"
                     initial={{ opacity: 0, y: -50 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.6 }}
@@ -46,21 +47,20 @@ const Testimonials = () => {
                     {testimonialsData.map((testimonial, index) => (
                         <motion.div
                             key={index}
-                            className="p-6 bg-white rounded-lg shadow-lg"
+                            className="p-6 rounded-lg shadow-lg bg-white dark:bg-dark text-lightText dark:text-darkText"
                             initial={{ opacity: 0, y: 50 }}
                             whileInView={{ opacity: 1, y: 0 }}
                             transition={{ duration: 0.6, delay: index * 0.2 }}
                         >
-                            {/* <Image
+                            {/* Uncomment this if you want to add the image */}
+                            {/* <img
                                 src={testimonial.image}
                                 alt={testimonial.name}
                                 className="h-16 w-16 rounded-full mx-auto mb-4"
-                                width={64}
-                                height={64}
                             /> */}
-                            <h3 className="text-xl font-semibold text-gray-900">{testimonial.name}</h3>
-                            <p className="text-sm text-gray-500 mb-2">{testimonial.position}</p>
-                            <p className="text-lg text-gray-700 italic">&quot;{testimonial.feedback}&quot;</p>
+                            <h3 className="text-xl font-semibold">{testimonial.name}</h3>
+                            <p className="text-sm mb-2 text-gray-500 dark:text-gray-400">{testimonial.position}</p>
+                            <p className="text-lg italic text-gray-700 dark:text-gray-300">&quot;{testimonial.feedback}&quot;</p>
                         </motion.div>
                     ))}
                 </div>

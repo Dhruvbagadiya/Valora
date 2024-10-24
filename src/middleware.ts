@@ -1,7 +1,6 @@
 import { NextResponse } from 'next/server'
 import type { NextRequest } from 'next/server'
 
-// This function can be marked `async` if using `await` inside
 export function middleware(request: NextRequest) {
     const pathname = request.nextUrl.pathname;
 
@@ -10,6 +9,7 @@ export function middleware(request: NextRequest) {
         "/tools/uuid-generator",
         "/tools/url-encoder-decoder",
         "/tools/date-time-utilities",
+        "/tools/jwt-decoder",
     ]
 
     if (toolsEndpoints.includes(pathname)) {

@@ -2,12 +2,12 @@
 // app/services/web-development/page.tsx
 import Image from 'next/image';
 import Link from 'next/link';
-import Navbar from '../../../Components/Navbar';
-import Footer from '../../../Components/Footer';
+import Navbar from '../../../components/Navbar';
+import Footer from '../../../components/Footer';
 
 const WebDevelopmentPage = () => {
   return (
-    <div className="min-h-screen bg-secondary">
+    <div className="min-h-screen bg-dark">
       <Navbar />
       <div className="p-4 md:p-8">
       <div className="container mx-auto">
@@ -90,7 +90,7 @@ const WebDevelopmentPage = () => {
                   />  
                 </div>
                 <div className={`w-full md:w-1/2 ${index % 2 === 0 ? 'pl-8' : 'pr-8'} flex flex-col justify-center items-start text-left`}>
-                  <h3 className="text-lg md:text-xl font-bold text-secondary mb-2 py-5">{item.title}</h3>
+                  <h3 className="text-lg md:text-xl font-bold text-primary mb-2 py-5">{item.title}</h3>
                   <p className="text-base text-green-950 mb-4">{item.description}</p>
                 </div>
               </div>

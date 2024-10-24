@@ -1,0 +1,157 @@
+---
+slug: "next-js-routing-explained"
+title: "Next.js Routing Explained"
+description: "A deep dive into routing in Next.js for building modern web apps."
+author: "Jane Smith"
+date: "2024-10-19"
+tags: ['nextjs', 'routing', 'dynamic-routing', 'api-routes']
+thumbnail: "/assets/blog/NextJs_Route.webp"
+authorImage: "/assets/blog/NextJs_Route.webp"
+readtime: 5
+privacy: "public"
+---
+
+**Next.js** offers a powerful and simple routing system that lets you create pages by just creating files in the **pages** directory. This file-based routing makes it easy to add new pages without any need for configuration files or complex setups.
+
+### Static Routing
+
+Each file you create in the **pages** directory becomes a route automatically. For example:
+
+- **/index.js** → **/** (Homepage)
+- **/about.js** → **/about**
+
+Static routing in Next.js is very simple. Every file becomes a new page, meaning there is no need for a routing configuration. The filenames represent the routes.
+
+### Dynamic Routing
+
+For **dynamic routes**, Next.js allows you to define URL parameters by using square brackets (`[param]`). For example:
+
+```jsx
+import { useRouter } from 'next/router';
+
+const Post = () => {
+  const { id } = useRouter().query;
+  return <div>Post ID: {id}</div>;
+};
+
+export default Post;
+```
+
+In the example above, the `[id].js` file matches routes like `/post/1` or `/post/hello`. The dynamic part, `id`, can be accessed using the `useRouter()` hook provided by Next.js.
+
+### Nested Dynamic Routes
+
+Next.js also supports **nested dynamic routes**. You can structure your folders to reflect more complex routing patterns. For instance:
+
+```bash
+/pages
+  └── /blog
+        ├── [category]
+              └── [post].js 
+```
+
+This setup will match URLs such as:
+
+- `/blog/technology/nextjs-intro`
+- `/blog/design/ui-ux-trends`
+
+In your `post.js` file, you can access both the `category` and `post` parameters like this:
+
+```jsx
+import { useRouter } from 'next/router';
+
+const Post = () => {
+  const { category, post } = useRouter().query;
+  return (
+    <div>
+      <h1>{post}</h1>
+      <p>Category: {category}</p>
+    </div>
+  );
+};
+
+export default Post;
+```
+
+### Fallback Pages
+
+When you're using Static Generation (SSG), sometimes not all paths are known at build time. In such cases, Next.js provides a feature called **fallback**. This allows you to dynamically generate pages on the first request and cache them for future requests.
+
+Here’s how you enable fallback in a dynamic route:
+
+```jsx
+export async function getStaticPaths() {
+  return {
+    paths: [],
+    fallback: true,
+  };
+}
+
+export async function getStaticProps({ params }) {
+  const post = await fetchPost(params.id);
+  return {
+    props: { post },
+  };
+}
+```
+
+When a user visits a path that hasn’t been pre-rendered, Next.js will display a fallback version of the page while it’s being generated. Once generated, it will be cached and served as a static page for future requests.
+
+### Pre-rendering Methods: SSG vs. SSR
+
+Next.js provides two pre-rendering methods:
+
+- **Static Site Generation (SSG)**: Pages are generated at build time and served as static HTML. This is the default method for Next.js, providing excellent performance as the content is generated ahead of time.
+- **Server-side Rendering (SSR)**: Pages are generated on each request. This is useful for content that changes frequently or requires up-to-date data at the time of the request.
+
+```jsx
+export async function getServerSideProps() {
+  const res = await fetch('https://api.example.com/data');
+  const data = await res.json();
+
+  return {
+    props: { data },
+  };
+}
+```
+
+Use SSG for content that doesn't change often, like blogs or marketing pages. Use SSR when your content changes frequently, like dashboards or user-specific pages.
+
+### API Routes
+
+Next.js also provides a powerful way to create API routes directly within your application. You can create API endpoints by adding files to the **pages/api** directory:
+
+```jsx
+export default function handler(req, res) {
+  res.status(200).json({ message: 'Hello, World!' });
+}
+```
+
+These API routes are server-side only, meaning they don’t increase the client-side JavaScript bundle size. API routes are perfect for building custom backends or proxying requests.
+
+### Link Component
+
+To enable client-side navigation between routes, Next.js provides a **Link** component. This improves performance by preventing full-page reloads:
+
+```jsx
+import Link from 'next/link';
+
+export default function Home() {
+  return (
+    <div>
+      <h1>Welcome to Next.js Routing!</h1>
+      <Link href="/about">
+        <a>Go to About Page</a>
+      </Link>
+    </div>
+  );
+}
+```
+
+The Link component uses the `href` attribute to define the route and wraps the anchor tag `<a>` to enable seamless navigation within your app.
+
+### SEO Benefits
+
+Next.js routing is not only simple but also **SEO-friendly**. By generating static pages and creating clean URL structures, Next.js helps improve your website’s visibility on search engines.
+
+In conclusion, Next.js simplifies routing by allowing you to create routes directly from file names and folder structures. The built-in support for static and dynamic routes, along with powerful API routing and SEO benefits, makes Next.js an excellent choice for building modern web applications.

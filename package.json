@@ -1,10 +1,10 @@
 {
     "name": "valora",
-    "version": "0.1.0",
+    "version": "1.0.0",
     "private": true,
     "scripts": {
         "dev": "next dev",
-        "dev:watch": "next-remote-watch ./posts",
+        "sync": "bun ./scripts/SyncBlogs.ts",
         "build": "next build",
         "start": "next start",
         "lint": "next lint"
@@ -12,14 +12,16 @@
     "dependencies": {
         "@fortawesome/free-solid-svg-icons": "^6.6.0",
         "@fortawesome/react-fontawesome": "^0.2.2",
-        "@next/third-parties": "^14.2.15",
+        "@next/third-parties": "^15.0.1",
         "@sindresorhus/slugify": "^2.2.1",
         "clsx": "^2.1.1",
         "date-fns": "^4.1.0",
         "framer-motion": "^11.11.9",
         "gray-matter": "^4.0.3",
+        "jose": "^5.9.6",
         "jwt-decode": "^4.0.0",
-        "next": "14.2.15",
+        "mongoose": "^8.7.2",
+        "next": "15.0.1",
         "next-mdx-remote": "^5.0.0",
         "next-remote-watch": "^2.0.0",
         "next-themes": "^0.3.0",
@@ -30,6 +32,7 @@
         "react-dom": "18.3.1",
         "react-feather": "^2.0.10",
         "react-icons": "^5.3.0",
+        "react-share": "^5.1.0",
         "rehype-prism-plus": "^2.0.0",
         "remark-gfm": "^4.0.0",
         "sass": "^1.80.3",
@@ -37,12 +40,11 @@
     },
     "devDependencies": {
         "@tailwindcss/typography": "^0.5.15",
+        "@types/mongoose": "^5.11.97",
         "@types/node": "22.7.7",
         "@types/react": "18.3.11",
         "@types/uuid": "^10.0.0",
         "autoprefixer": "^10.4.20",
-        "eslint": "9.13.0",
-        "eslint-config-next": "14.2.15",
         "postcss": "^8.4.47",
         "tailwindcss": "^3.4.14",
         "typescript": "5.6.3"
